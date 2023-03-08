@@ -38,6 +38,8 @@ html, body {
   display: flex;
   flex-direction: column;
   margin-left: 35px;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .intro > div:first-child {
@@ -48,6 +50,12 @@ html, body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-width: 390px;
+  flex: 0;
+}
+
+.image img {
+  width: 90%;
 }
 
 .image div {
@@ -63,6 +71,40 @@ html, body {
   max-height: 100px;
 }
 
-.about {
+@media only screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+  }
 
+  .header,
+  .footer {
+    min-height: 50px;
+    max-height: 50px;
+  }
+
+  .image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 390px;
+    flex: 0;
+  }
+
+  .image img {
+    width: 90%;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .about {
+    margin-left: 0;
+    margin-top: 20px;
+  }
 }
